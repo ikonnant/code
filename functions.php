@@ -1,26 +1,4 @@
-<?
-/**
-    Подключаем ORM обертку для Инфоблоков, для работы через D7 (https://dev.1c-bitrix.ru/community/webdev/user/24164/blog/13322/?commentId=66632)
-**/
-\CModule::AddAutoloadClasses('', array(
-    'nav\\IblockOrm\\MultiplePropertyElementTable' => '/local/lib/nav/IblockOrm/MultiplePropertyElementTable.php',
-    'nav\\IblockOrm\\SinglePropertyElementTable' => '/local/lib/nav/IblockOrm/SinglePropertyElementTable.php',
-    'nav\\IblockOrm\\ElementTable' => '/local/lib/nav/IblockOrm/ElementTable.php'
-));
- 
-/**
-    Иногда в Битриксе бывает глюк и константа POST_FORM_ACTION_URI не определяется - этот код лечит глюк
-**/
-if (!defined("POST_FORM_ACTION_URI")) {
-    define("POST_FORM_ACTION_URI", htmlspecialcharsbx(GetRequestUri()));
-}
-/**
-    Иногда в Битриксе бывает глюк класс CSmileGallery теряется - этот код находит класс обратно
-**/
-\Bitrix\Main\Loader::registerAutoLoadClasses(
-    "main", array("CSmileGallery" => "classes/general/smile.php")
-);
- 
+<? 
 /**
     Функция удаления кэшированных значений с ~ из массива
 **/
